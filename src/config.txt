@@ -1,0 +1,7 @@
+arm_freq=900
+core_freq=250
+sdram_freq=450
+over_voltage=2
+dtparam=spi=on
+dtparam=i2c_arm=off
+dtoverlay=w1-gpio
