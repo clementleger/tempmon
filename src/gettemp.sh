@@ -1,9 +1,10 @@
 #!/bin/bash
-DIR="/var/www/temp"
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+DS18B20_DEV="28-000004269728"
 
 echo "Acquiring temperature"
 
-temp=$(cat /sys/bus/w1/devices/28-000004269728/w1_slave | tr '\n' ' ' | cut -d "=" -f 3)
+temp=$(cat /sys/bus/w1/devices/$(DS18B20_DEV)/w1_slave | tr '\n' ' ' | cut -d "=" -f 3)
 temp_dec=${temp:0:2}.${temp:2:3}
 
 echo "Acquiring humidity"
