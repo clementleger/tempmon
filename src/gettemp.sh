@@ -4,7 +4,7 @@ DS18B20_DEV="28-000004269728"
 
 echo "Acquiring temperature"
 
-temp=$(cat /sys/bus/w1/devices/$(DS18B20_DEV)/w1_slave | tr '\n' ' ' | cut -d "=" -f 3)
+temp=$(cat /sys/bus/w1/devices/$DS18B20_DEV/w1_slave | tr '\n' ' ' | cut -d "=" -f 3)
 temp_dec=${temp:0:2}.${temp:2:3}
 
 echo "Acquiring humidity"
